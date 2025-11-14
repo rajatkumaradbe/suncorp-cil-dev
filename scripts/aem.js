@@ -655,7 +655,6 @@ async function waitForFirstImage(section) {
  * Loads all blocks in a section.
  * @param {Element} section The section element
  */
-const isAuthor = window.location.hostname.startsWith("author-p139617");
 
 async function loadSection(section, loadCallback) {
   const status = section.dataset.sectionStatus;
@@ -664,7 +663,7 @@ async function loadSection(section, loadCallback) {
     const blocks = [...section.querySelectorAll('div.block')];
     for (let i = 0; i < blocks.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-        await loadBlock(blocks[i]);
+      await loadBlock(blocks[i]);
     }
     if (loadCallback) await loadCallback(section);
     section.dataset.sectionStatus = 'loaded';
@@ -714,5 +713,4 @@ export {
   toClassName,
   waitForFirstImage,
   wrapTextNodes,
-  isAuthor,
 };
