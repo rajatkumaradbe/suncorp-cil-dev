@@ -1,0 +1,14 @@
+.custom-footer-container {
+  background-color: #e0e0e0;
+  padding: 24px 12px;
+  font-size: 12px;
+  max-width: 1140px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  line-height: 1;
+}
+.custom-footer-link,
+.custom-footer-container a {
+  color: var(--color-primary);
+  text-decoration: underline !important;
+}

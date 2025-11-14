@@ -1,0 +1,17 @@
+{
+  "mappings": [
+    "/content/cil/:/",
+    "/content/dam/assets/:/assets/",
+    "/content/cil/configuration:/.helix/config.json",
+    "/content/cil/metadata:/metadata.json",
+    "/content/cil/placeholders:/placeholders.json",
+    "/content/cil/redirects:/redirects.json",
+    "/content/cil/headers:/.helix/headers.json",
+    "/content/cil/dealer-details:/dealer-details.json",
+    "/content/cil/forgerock-config:/forgerock-config.json"
+  ],
+  "includes": [
+    "/content/cil/",
+    "/content/dam/assets"
+  ]
+}

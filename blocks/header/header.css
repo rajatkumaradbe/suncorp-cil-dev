@@ -1,0 +1,32 @@
+.custom-header {
+  background-color: var(--color-primary);
+  padding: 10px;
+  max-width: 1140px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  line-height: 1;
+}
+.custom-header-image {
+  width: 200px !important;
+  height: auto !important;
+  display: block;
+}
+
+.header-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header-logo p {
+  margin: 0;
+}
+
+a.logout-link {
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+}
+.custom-header-image {
+  display: block;
+}

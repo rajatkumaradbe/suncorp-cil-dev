@@ -1,0 +1,11 @@
+footer {
+  font-size: var(--body-font-size-xs);
+}
+
+footer .footer > div {
+  margin: auto;
+}
+
+footer .footer p {
+  margin: 0;
+}

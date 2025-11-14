@@ -1,0 +1,1348 @@
+:root {
+  --background-color-primary: #fff;
+  --label-color: var(--form-primary-color: );
+  --teal: #16929c;
+  --border-color: #818a91;
+  --form-error-color: #790000;
+  --form-error-color-radio-label: #b3311f;
+  --button-primary-color: #eb7020;
+  --button-secondary-color: #666;
+  --button-primary-hover-color: #035fe6;
+  --form-font-size-m: 18px;
+  --form-font-size-s: 14px;
+  --form-font-size-xs: 12px;
+  --form-background-color: var(--background-color-primary);
+  --form-padding: 0;
+  --form-columns: 12;
+  --form-field-horz-gap: 24px;
+  --form-field-vert-gap: 24px;
+  --form-invalid-border-color: #b3311f;
+  --form-valid-border-color: #ee7201;
+  --form-input-padding: 0.75rem 0.6rem;
+  --form-input-font-size: 1rem;
+  --form-input-disable-color: #ebebe4;
+  --form-input-border-size: 1.2px;
+  --form-input-border-color: var(--border-color);
+  --form-input-background-color: var(--background-color-primary);
+  --form-paragraph-color: var(--label-color);
+  --form-paragraph-margin: 0 0 0.9rem;
+  --form-paragraph-font-style: none;
+  --form-paragraph-font-size: var(--form-font-size-s);
+  --form-label-color: var(--label-color);
+  --form-label-font-size: 1.008rem;
+  --form-label-font-weight: bold;
+  --form-title-font-weight: 600;
+  --form-fieldset-border: 0;
+  --form-fieldset-marign: 0;
+  --form-fieldset-columns: 1;
+  --form-fieldset-legend-color: var(--form-label-color);
+  --form-fieldset-legend-font-size: var(--form-label-font-size);
+  --form-fieldset-legend-font-weight: var(--form-title-font-weight);
+  --form-fieldset-legend-border: none;
+  --form-fieldset-legend-padding: 0;
+  --form-button-color: var(--background-color-primary);
+  --form-button-font-size: var(--form-font-size-s);
+  --form-button-background-color: var(--button-primary-color);
+  --form-button-background-hover-color: var(--button-primary-hover-color);
+  --form-button-border: 2px solid transparent;
+  --form-button-padding: 15px 35px;
+  --form-upload-color: var(--form-label-color);
+  --form-upload-font-size: var(--form-font-size-xs);
+  --form-upload-background-color: var(--background-color-primary);
+  --form-submit-width: 100%;
+  --form-width: 95%;
+  --form-wizard-border: 0;
+  --form-wizard-background-color: var(--background-color-primary);
+  --form-wizard-border-color: #757575;
+  --form-wizard-number-color: var(--button-primary-color);
+  --form-wizard-padding: 30px;
+  --form-wizard-padding-bottom: 160px;
+  --form-wizard-step-legend-padding: 10px;
+  --form-wizard-step-legend-font-size: 1.1rem;
+  --connector-diameter: 1.5rem;
+  --connector-padding: 0.625rem;
+  --connector-color: #1615134d;
+  --connector-height: 2px;
+  --border-focus: #0e7297;
+  --form-primary-color: #161513;
+  --info-icon-color: var(--button-primary-color);
+  --info-icon-hover-color: var(--button-primary-hover-color);
+  --tooltip-background: #fff;
+  --tooltip-text-color: var(--button-primary-color);
+  --tooltip-max-width: 300px;
+  --tooltip-border-radius: 6px;
+  --tooltip-padding: 8px 12px;
+  --tooltip-font-size: 14px;
+  --tooltip-z-index: 1000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main .form pre {
+  display: none;
+}
+
+form output {
+  display: block;
+  font-weight: 700;
+  font-size: 1.625rem;
+}
+
+form:not(.edit-mode) [data-visible='false'] {
+  display: none !important;
+}
+
+main .form-container {
+  background-color: var(--form-background-color);
+  margin: 0;
+}
+
+main .rich-text-container.form-container {
+  display: flex;
+}
+
+main .form-container > div:is(:first-child) {
+  flex: 0 0 33.33%;
+}
+
+main .form {
+  background-color: var(--form-background-color);
+}
+
+main .form > div:not(:first-child) {
+  display: none;
+}
+
+main .form form {
+  display: grid;
+  grid-template-columns: repeat(var(--form-columns), minmax(0, 1fr));
+  gap: var(--form-field-vert-gap) var(--form-field-horz-gap);
+  line-height: 1.25;
+}
+
+main .form form fieldset {
+  border: var(--form-fieldset-border);
+  margin: var(--form-fieldset-marign);
+  width: 100%;
+  padding: 0;
+}
+.panel-wrapper {
+  display: grid;
+  align-items: start;
+}
+.panel-wrapper:has(.radio-wrapper) {
+  align-items: end;
+}
+
+main .form .field-description,
+#year-error {
+  color: var(--form-label-color);
+  font-size: var(--form-font-size-xs);
+}
+
+main .form form .field-invalid .field-description,
+#year-error {
+  color: var(--form-error-color);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: flex-start;
+}
+/* main .form form .field-invalid.radio-group-wrapper .field-description,*/
+main .form form .field-invalid.email-wrapper .field-description {
+  margin-top: 8px;
+}
+
+.email-wrapper label {
+  margin-bottom: 5px;
+}
+
+main .form input:not([type='checkbox']),
+main .form textarea,
+main .form select {
+  background-color: var(--form-input-background-color);
+  border: var(--form-input-border-size) solid #16151380;
+  width: 100%;
+  height: 52px;
+  color: #161513;
+  padding: var(--form-input-padding);
+  font-size: var(--form-input-font-size);
+  max-width: unset;
+  border-radius: 4px;
+}
+
+main .form form .price-total {
+  align-items: end;
+  margin-bottom: 10px;
+}
+
+.radio-group-wrapper input[type='radio'],
+.multi-select input[type='checkbox'] {
+  width: auto;
+  display: none;
+  position: relative;
+}
+.number-wrapper {
+  display: grid;
+}
+main .form textarea {
+  min-height: 100px;
+}
+
+/* main .form select {
+  padding-top: 0;
+  padding-bottom: 0;
+} */
+
+main .form input:hover,
+main .form select:hover {
+  border-color: rgb(90 92 96);
+}
+
+main .form button {
+  padding: 6px 20px;
+}
+
+main .form input:disabled,
+main .form textarea:disabled,
+main .form select:disabled,
+main .form button:disabled {
+  color: #16151366;
+  border-color: #16151366;
+}
+
+.list-focus,
+main .form .field-wrapper input:focus,
+main .form .field-wrapper textarea:focus,
+main .form .field-wrapper input:focus-visible,
+main .form .field-wrapper textarea:focus-visible,
+main .form .field-wrapper select:focus-visible {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 1px rgb(14, 114, 151) inset;
+  outline: 0;
+}
+
+main .form input[type='file'] {
+  border: none;
+  padding-inline-start: 0;
+  background: unset;
+  color: unset;
+}
+
+main .form fieldset legend {
+  font-weight: var(--form-fieldset-legend-font-weight);
+  font-size: var(--form-fieldset-legend-font-size);
+  color: var(--form-fieldset-legend-color);
+  border-bottom: var(--form-fieldset-legend-border);
+  width: 100%;
+  padding: var(--form-fieldset-legend-padding);
+  margin-bottom: 10px;
+}
+
+main .form label {
+  font-weight: var(--form-label-font-weight);
+  font-size: var(--form-label-font-size);
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+main .form .field-label-content {
+  display: inline;
+}
+main .form .field-info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  color: var(--info-icon-color);
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.field-description {
+  display: none;
+}
+.field-info-tooltip .field-invalid .field-description {
+  display: block;
+}
+.info-icon-path:before {
+  content: '?';
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  border: 1.5px solid var(--form-primary-color);
+  border-radius: 50px;
+  padding: 1px 4px;
+  color: var(--form-primary-color);
+}
+main .form .field-info-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 22px;
+  background-color: var(--tooltip-background);
+  padding: var(--tooltip-padding);
+  border-radius: var(--tooltip-border-radius);
+  max-width: var(--tooltip-max-width);
+  width: max-content;
+  min-width: 150px;
+  z-index: var(--tooltip-z-index);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  pointer-events: none;
+  text-align: left;
+}
+main .form .field-info-tooltip p {
+  color: var(--form-primary-color) !important;
+  font-size: var(--tooltip-font-size) !important;
+  font-weight: normal !important;
+  line-height: 1.4;
+}
+main .form .field-info-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--tooltip-background);
+}
+main .form .field-info-icon:hover .field-info-tooltip,
+main .form .field-info-icon:focus .field-info-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+main .form :not(.checkbox-wrapper) label.required::after,
+.radio-group-wrapper[data-required='true'] legend .field-label-content:after,
+.checkbox-group-wrapper[data-required='true']
+  legend
+  .field-label-content:after {
+  content: '*';
+  color: var(--form-error-color-radio-label);
+  padding-inline-start: 5px;
+}
+
+main .form form p,
+main .form form .repeat-wrapper,
+main .form form .field-wrapper {
+  color: var(--form-primary-color);
+  grid-column: span 12;
+}
+
+main .form form .wizard > legend {
+  float: left;
+  width: 100%;
+}
+
+main .form form .field-wrapper.field-invalid .radio-wrapper label {
+  color: var(--form-error-color-radio-label);
+  background-color: #fff;
+  border: 1px solid var(--form-error-color-radio-label);
+}
+main
+  .form
+  form
+  .field-wrapper.field-invalid:has(input[type='radio']:checked)
+  label {
+  background-color: #dbdbdb;
+  border: 1px solid #dbdbdb;
+  color: var(--form-primary-color);
+}
+main
+  .form
+  form
+  .field-wrapper.field-invalid:has(input[type='radio']:checked)
+  legend {
+  color: var(--form-primary-color);
+}
+
+main .form form p {
+  font-size: var(--form-paragraph-font-size);
+  font-style: var(--form-paragraph-font-style);
+  color: var(--form-paragraph-color);
+  margin: 0;
+}
+
+/* main .form form .checkbox-wrapper,
+main .form form .radio-wrapper {
+  display: inline;
+  align-items: center;
+  margin: 0 16px 0 0;
+} */
+
+input::file-selector-button {
+  color: var(--form-upload-color);
+  background: var(--form-upload-background-color);
+  font-size: var(--form-upload-font-size);
+  text-align: center;
+}
+
+main .submit-wrapper {
+  width: var(--form-submit-width);
+}
+
+main .file-wrapper.decorated input[type='file'] {
+  display: none;
+}
+
+main .file-wrapper .field-dropregion {
+  background: rgb(0 0 0 / 2%);
+  border: 1px dashed var(--form-input-border-color);
+  border-radius: 4px;
+  margin: 11px 0 8px;
+  padding: 32px;
+  text-align: center;
+}
+
+/* Repeatable Styling */
+
+main .form form .repeat-actions {
+  grid-column: span 12;
+}
+
+main .form form .item-remove,
+main .form form .item-add {
+  overflow: unset;
+  display: none;
+}
+
+main .form form .item-remove {
+  justify-self: end;
+  grid-column: span 12;
+}
+
+main .form form div[data-variant='addRemoveAll'] .item-add,
+main .form form div[data-variant='addRemoveLast'] .item-add,
+main .form form div[data-variant='addRemoveAll'] .item-remove,
+main
+  .form
+  form
+  div[data-variant='addRemoveLast']
+  fieldset:last-of-type
+  .item-remove {
+  display: block;
+}
+
+/* End of Repeatable Styling */
+main .form .file-description {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 5px;
+}
+
+main .form .file-description .file-description-name {
+  cursor: pointer;
+  text-decoration: underline;
+  flex: 1;
+}
+
+main .file-wrapper .file-description button {
+  --form-button-padding: 15px;
+
+  width: 12px;
+  height: 12px;
+  border: none;
+  text-align: center;
+  background: var(--border-color);
+  cursor: pointer;
+  position: relative;
+  border-radius: 3px;
+}
+
+main .file-wrapper .file-description button::after {
+  content: 'X';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: var(--background-color-primary);
+  transform: translate(-50%, -50%);
+}
+
+main .form .button-wrapper button {
+  cursor: pointer;
+}
+
+main .form .button-wrapper button:hover {
+  background-color: #312d2a26;
+}
+
+main .form .button-wrapper button[disabled] {
+  cursor: auto;
+}
+
+main .form .button-wrapper button[disabled]:hover {
+  border: 3px solid var(--button-secondary-color);
+  color: var(--button-secondary-color);
+  background-color: transparent;
+}
+main > .section div.form-wrapper {
+  padding: 10px;
+  max-width: 1140px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border: 1px solid rgba(22, 21, 19, 0.12);
+  border-radius: 6px;
+}
+/** Wizard Styling */
+main .form form .wizard {
+  display: grid;
+  counter-reset: wizard-step-counter;
+  grid-template-columns: minmax(0, 1fr);
+  border: var(--form-wizard-border) solid var(--form-wizard-border-color);
+  background-color: var(--form-wizard-background-color);
+  gap: unset;
+}
+
+main .form form .wizard > .field-description {
+  width: 100%;
+}
+
+main .form form .wizard > fieldset:not(.current-wizard-step) {
+  display: none;
+}
+
+main .form form .wizard .wizard-button-wrapper {
+  display: flex;
+  justify-content: end;
+  gap: 30px;
+  margin-bottom: var(--form-wizard-padding);
+  width: 100%;
+  grid-column: span 12;
+  margin-top: 10px;
+}
+
+main .form form .wizard .wizard-button-wrapper .field-wrapper {
+  flex: 1;
+}
+form .wizard-menu-items {
+  position: relative;
+  width: calc(100vw - 24px);
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 1118px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.wizard-menu-items {
+  display: flex;
+  flex-wrap: nowrap;
+  list-style: none;
+  background-color: #fbf9f8;
+  margin: 0;
+  font-weight: var(--form-fieldset-legend-font-weight);
+  font-size: var(--form-fieldset-legend-font-size);
+  color: var(--form-fieldset-legend-color);
+  grid-column: span 12;
+  padding: 12px;
+}
+
+main .form form .wizard .wizard-menu-item {
+  counter-increment: wizard-step-counter;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  width: 100%;
+  color: #16151366;
+  text-align: center;
+}
+
+main .form form .wizard .wizard-menu-item::before {
+  content: counter(wizard-step-counter);
+  border: 2px solid #16151366;
+  color: #16151366;
+  background-color: #fff;
+  border-radius: 50%;
+  width: var(--connector-diameter);
+  height: var(--connector-diameter);
+  text-align: center;
+  line-height: 2;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .form form .wizard .wizard-menu-active-item {
+  color: var(--form-primary-color);
+}
+main .form form .wizard .wizard-menu-active-item::before {
+  border: 2px solid var(--form-primary-color);
+  background: var(--form-primary-color);
+  color: var(--background-color-primary);
+  font-weight: 600;
+}
+
+/* Connector line between steps */
+.wizard-menu-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: calc(50% + var(--connector-diameter) / 2 + var(--connector-padding));
+  height: var(--connector-height);
+  width: calc(100% - var(--connector-diameter) - var(--connector-padding) * 2);
+  top: calc((var(--connector-diameter) + var(--connector-height)) / 2);
+  background-color: var(--connector-color);
+}
+.wizard-menu-item.no-connector::after {
+  content: none !important;
+}
+/* Hide connector on invisible items */
+.wizard-menu-item[data-visible='false']::after {
+  content: none !important;
+}
+.wizard-menu-item.completed {
+  color: #161513 !important;
+}
+.wizard-menu-item.completed::before {
+  content: '\2713' !important;
+  color: white !important;
+  background: #508223 !important;
+  border: none !important;
+}
+
+/* Selected item */
+.custom-options li[data-selected='true'] {
+  background-color: #def;
+  border-top: 1px solid #227e9e;
+  border-bottom: 1px solid #227e9e;
+}
+
+/* Hover style only for non-selected items */
+.custom-options li:not([data-selected='true']):hover {
+  background-color: #16151314;
+}
+
+@media (width >= 600px) {
+  main .form button {
+    width: unset;
+  }
+}
+
+/* wizard title on left */
+main .form form .wizard.left {
+  display: flex;
+}
+
+main .form form .wizard.left .wizard-menu-items {
+  flex-direction: column;
+  width: 300px;
+}
+
+.form.block {
+  width: 56% !important;
+  margin: 0 auto !important;
+}
+
+main .form form .panel-wrapper {
+  grid-template-columns: repeat(var(--form-columns), minmax(0, 1fr));
+  gap: var(--form-field-vert-gap) var(--form-field-horz-gap);
+}
+
+main .form form .repeat-wrapper {
+  display: grid;
+  grid-template-columns: repeat(var(--form-columns), minmax(0, 1fr));
+  gap: var(--form-field-vert-gap) var(--form-field-horz-gap);
+}
+
+main .form form .wizard.left .panel-wrapper {
+  flex: 1;
+}
+
+main .form .form-message.success-message {
+  color: #0f5132;
+  background-color: #d1e7dd;
+  border-color: #badbcc;
+  flex: 100%;
+  grid-column: span 12;
+  padding: 10px;
+}
+
+main .form .form-message.error-message {
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+  flex: 100%;
+  grid-column: span 12;
+  padding: 10px;
+}
+
+main .form .file-wrapper .file-drag-area {
+  border: 1px dashed var(--border-color);
+  border-radius: 5px;
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.drop-down-wrapper,
+.date-wrapper,
+.text-wrapper,
+.number-wrapper {
+  display: grid;
+  gap: 6px;
+}
+
+/* grid css */
+main .form form .field-wrapper.col-12 {
+  grid-column: span 12;
+}
+
+main .form form .field-wrapper.col-11 {
+  grid-column: span 11;
+}
+
+main .form form .field-wrapper.col-10 {
+  grid-column: span 10;
+}
+
+main .form form .field-wrapper.col-9 {
+  grid-column: span 9;
+}
+
+main .form form .field-wrapper.col-8 {
+  grid-column: span 8;
+}
+
+main .form form .field-wrapper.col-7 {
+  grid-column: span 7;
+}
+
+main .form form .field-wrapper.col-6 {
+  grid-column: span 6;
+}
+
+main .form form .field-wrapper.col-5 {
+  grid-column: span 5;
+}
+
+main .form form .field-wrapper.col-4 {
+  grid-column: span 4;
+}
+
+main .form form .field-wrapper.col-3 {
+  grid-column: span 3;
+}
+
+main .form form .field-wrapper.col-2 {
+  grid-column: span 2;
+}
+
+main .form form .field-wrapper.col-1 {
+  grid-column: span 1;
+}
+
+main .form .form-image-wrapper img {
+  max-width: 100%;
+  height: auto;
+}
+
+main
+  form
+  .wizard
+  > .current-wizard-step.panel-wrapper:first-of-type
+  ~ .wizard-button-wrapper
+  > .wizard-button-prev,
+main
+  form
+  .wizard
+  > .current-wizard-step.panel-wrapper:last-of-type
+  ~ .wizard-button-wrapper
+  > .wizard-button-next,
+main
+  form
+  .wizard
+  > .current-wizard-step.panel-wrapper
+  ~ .wizard-button-wrapper
+  > .submit-wrapper {
+  display: none;
+}
+
+/* Show submit-wrapper only on the last step */
+main
+  form
+  .wizard
+  > .current-wizard-step.panel-wrapper:last-of-type
+  ~ .wizard-button-wrapper
+  > .submit-wrapper {
+  display: block;
+}
+main
+  form
+  .wizard
+  > .current-wizard-step.panel-wrapper:first-of-type
+  ~ .wizard-button-wrapper {
+  width: 50%;
+}
+main
+  form
+  .wizard
+  > .current-wizard-step.panel-wrapper:last-of-type
+  input:read-only {
+  border: none;
+}
+
+main
+  form
+  .wizard
+  > .current-wizard-step.panel-wrapper:last-of-type
+  .field-wrapper:has(> input:read-only) {
+  display: grid;
+  grid-template-columns: minmax(150px, auto) 1fr;
+  gap: 6px;
+  /* grid-column: span 6 !important; */
+}
+main .form .field-yearofmanufacture:has(.error-active) input,
+main
+  .form
+  .field-wrapper.field-invalid:has(.field-description)
+  .select-wrapper
+  select,
+main .form .field-wrapper.field-invalid:has(.field-description) input,
+main .form .field-wrapper.field-invalid:has(.field-description) textarea,
+main .form .field-wrapper.field-invalid input:focus,
+main .form .field-wrapper.field-invalid textarea:focus,
+main .form .field-wrapper.field-invalid input:focus-visible,
+main .form .field-wrapper.field-invalid textarea:focus-visible {
+  border: var(--form-input-border-size) solid var(--form-invalid-border-color);
+  box-shadow: none;
+}
+main
+  .form
+  .field-wrapper.field-invalid:not(:has(.field-description))
+  input:focus {
+  border: var(--form-input-border-size) solid #16151380;
+}
+/* main .form .field-wrapper.field-invalid .field-description::before {
+  content: '* ';
+} */
+main .form .field-yearofmanufacture:has(.error-active) .field-description {
+  display: none;
+}
+
+/* stylelint-disable */
+main .form .gform_title {
+  color: var(--teal);
+}
+
+main .form .drop-down-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+  border: 1px var(--light-grey) solid;
+  color: var(--dark-shade);
+  cursor: pointer;
+  background: linear-gradient(var(--standard-btn-light), var(--standard-btn));
+}
+
+main .form .drop-down-wrapper .select-wrapper {
+  position: relative;
+}
+
+main .form h3 {
+  color: var(--form-primary-color);
+  display: block;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 43.992px;
+  margin: 0;
+  text-align: center;
+}
+
+/* Hide native select but keep it accessible */
+/* .select-wrapper select {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.custom-dropdown {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  background: white;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  box-sizing: border-box;
+  border-style: solid;
+  border: 1px solid #16151380;
+  border-radius: 4px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  height: 52px;
+  appearance: none;
+  padding-right: 40px;
+  color: var(--form-primary-color);
+  font-size: 16px;
+}
+
+.custom-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  display: none;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding: 5px 0;
+  color: var(--form-primary-color);
+  box-sizing: border-box;
+  border: 1px solid #1615131f;
+  border-radius: 0.25rem;
+  box-shadow: 0px 4px 8px 0px #00000029;
+  margin-top: 3px;
+  scrollbar-width: thin;
+}
+
+.custom-options li {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 16px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.custom-options li:hover,
+.custom-options li:focus {
+  background-color: #def;
+  outline: none;
+}
+
+main .form .custom-dropdown::after {
+  position: absolute;
+  content: '';
+  width: 40px;
+  height: 40px;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url('/icons/dropdown.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+main .form .custom-dropdown:hover::after {
+  background-color: #16151314;
+} */
+
+main
+  .form
+  .field-wrapper.field-invalid.drop-down-wrapper
+  > .select-wrapper::after {
+  top: 2.8rem;
+}
+
+main .form .select-wrapper select {
+  -webkit-appearance: none; /* Chrome, Safari, Opera */
+  -moz-appearance: none; /* Firefox */
+  appearance: none; /* Standard */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  background: white;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  box-sizing: border-box;
+  border-style: solid;
+  border: 1px solid #16151380;
+  border-radius: 4px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  height: 52px;
+  appearance: none;
+  padding-right: 40px;
+  color: var(--form-primary-color);
+  font-size: 16px;
+  background: #fff url('/icons/dropdown.png') no-repeat right 10px center;
+  background-size: 12px;
+}
+
+:root {
+  --scrollbar-thumb-color-hover: rgba(49, 45, 42, 0.15);
+  --scrollbar-track-color-force: rgba(49, 45, 42, 0.05);
+}
+
+body * {
+  scrollbar-width: thin;
+  scrollbar-color: transparent;
+}
+
+body :hover {
+  scrollbar-color: var(--oj-scrollbar-thumb-color-hover) transparent;
+}
+
+body ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body ::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+body ::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 0.25rem;
+}
+
+body :hover::-webkit-scrollbar-track {
+  background-color: rgba(49, 45, 42, 0.15);
+}
+
+body :hover::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color-hover);
+}
+
+body ::-webkit-scrollbar-button {
+  display: none;
+}
+
+body ::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+/*button */
+.wizard-button-wrapper .button {
+  color: var(--form-primary-color);
+  border-color: #16151380;
+  background-image: none;
+  background-color: #fff;
+  font-weight: 600;
+  border-radius: 0;
+  text-decoration: none;
+  justify-content: center;
+  min-width: 0;
+  align-items: center;
+  padding: 0;
+  border: 1px solid;
+  border-radius: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 0.859rem;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+  height: 3.25rem;
+  margin: 0;
+}
+
+main
+  .form
+  .field-wrapper[data-required='true']:not(
+    .radio-group-wrapper,
+    .checkbox-group-wrapper
+  )
+  label:after {
+  content: '*';
+  color: var(--form-error-color-radio-label);
+}
+
+.price-total .number-wrapper:nth-of-type(2),
+.price-total .number-wrapper:last-child {
+  position: relative;
+}
+
+.price-total .number-wrapper:nth-of-type(2)::before {
+  content: '+';
+  margin-right: 5px;
+  pointer-events: none;
+  position: absolute;
+  left: -17px;
+  top: 16px;
+}
+
+.price-total .number-wrapper:last-child::before {
+  content: '=';
+  margin-right: 5px;
+  pointer-events: none;
+  position: absolute;
+  left: -17px;
+  top: 16px;
+}
+
+input[type='text' i] {
+  padding-block: 1px;
+  padding-inline: 1px;
+}
+/* Centering the fieldset container */
+.price-total .field-wrapper {
+  position: relative;
+}
+
+.price-total .field-description {
+  position: absolute;
+  bottom: -21px;
+  white-space: nowrap;
+}
+.checkbox-wrapper {
+  display: grid;
+  align-items: center;
+  gap: 10px;
+  grid-template-columns: 1fr auto;
+}
+.checkbox-wrapper input {
+  width: 22px;
+  height: 22px !important;
+}
+
+.checkbox-wrapper .field-label-content {
+  font-weight: 400;
+}
+/* Style the label and radio button together */
+main .form .radio-group-wrapper .radio-wrapper label,
+main .form .multi-select .checkbox-wrapper label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 2px 16px;
+  background-color: #dbdbdb;
+  border-radius: 16px;
+  border: 1px solid #dbdbdb;
+  transition: all 0.3s ease;
+  font-family: Arial, sans-serif;
+  line-height: 24px;
+  color: var(--form-primary-color);
+  position: relative;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* Custom radio button circle */
+main .form .radio-group-wrapper label::before,
+main .form .multi-select .checkbox-wrapper label::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: transparent;
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+main
+  .form
+  .multi-select
+  .checkbox-wrapper
+  input[type='checkbox']:checked
+  + label::before,
+main .form .radio-group-wrapper input[type='radio']:checked + label::before {
+  background-color: var(--form-primary-color);
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+main
+  .form
+  .multi-select
+  .checkbox-wrapper
+  input[type='checkbox']:checked
+  + label,
+main .form .radio-group-wrapper input[type='radio']:checked + label {
+  padding-left: 30px;
+}
+
+main
+  .form
+  .multi-select
+  .checkbox-wrapper
+  input[type='checkbox']:checked
+  + label::after,
+main .form .radio-group-wrapper input[type='radio']:checked + label::after {
+  content: '\2713';
+  color: white;
+  font-size: 4px;
+  position: absolute;
+  left: 10px;
+  top: 2px;
+  transform: translateY(-50%) scale(0);
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.3s ease;
+  transition-delay: 1.5s;
+  z-index: 1;
+}
+
+main
+  .form
+  .multi-select
+  .checkbox-wrapper
+  input[type='checkbox']:checked
+  + label::after,
+main .form .radio-group-wrapper input[type='radio']:checked + label::after {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+  top: 14px;
+  font-size: 14px;
+} /* Ensure the radio buttons are displayed on the same row */
+.radio-group-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 10px;
+  flex-wrap: wrap; /* Allow elements to wrap onto new lines */
+}
+
+/* Make sure the description takes a full line */
+.radio-group-wrapper .field-description {
+  width: 100%;
+}
+
+/* Align the radio buttons properly */
+.checkbox-group-wrapper,
+.radio-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.checkbox-group-wrapper:has(.field-description) {
+  position: relative;
+}
+
+.checkbox-group-wrapper .field-description {
+  position: absolute;
+  bottom: -22px;
+}
+
+/* Optional: Add extra styling to the field-label for better spacing */
+.radio-group-wrapper .field-label {
+  margin-left: 5px;
+}
+.length-units {
+  position: relative;
+}
+.length-units:has(.field-description) #unitLabel {
+  top: 41%;
+}
+#unitLabel {
+  position: absolute;
+  top: 53%;
+  left: 44%;
+  letter-spacing: 1px;
+}
+.dob-calc {
+  position: relative;
+}
+
+.other-help-text {
+  margin-top: -10px;
+}
+.other-help-text ul {
+  color: red;
+  padding: 0;
+}
+.other-help-text li {
+  list-style: none;
+  color: red;
+}
+/* Adjust width and layout for smaller screens */
+@media (max-width: 768px) {
+  .panel-wrapper {
+    flex-direction: column;
+    gap: 20px; /* Space out vertically on smaller screens */
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  form .wizard-menu-items {
+    font-size: 12px;
+    margin-bottom: 0;
+  }
+  main .form h3 {
+    font-size: 27px;
+    line-height: 34px;
+  }
+
+  input,
+  .wizard-button-wrapper .button,
+  main .form input,
+  main .form textarea {
+    height: 44px;
+  }
+  .form.block {
+    width: 60% !important;
+  }
+
+  .price-total .number-wrapper:nth-of-type(2)::before,
+  .price-total .number-wrapper:last-child::before {
+    top: 9px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .form.block {
+    width: 80% !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .form.block {
+    width: 100% !important;
+  }
+  #unitLabel {
+    position: relative;
+    top: unset;
+    left: unset;
+  }
+  main .form form .field-wrapper[class*='col-'] {
+    grid-column: span 12;
+  }
+  main .form form .field-wrapper.price-total .col-4 {
+    grid-column: span 4;
+  }
+  .price-total .field-description {
+    bottom: -33px;
+  }
+  main .form form .wizard .wizard-button-wrapper {
+    gap: 20px;
+  }
+  main .form form fieldset {
+    padding: 0;
+  }
+}

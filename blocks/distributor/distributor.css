@@ -1,0 +1,162 @@
+main .section .distributor-wrapper {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* === Dealer Details Bar === */
+.dealer-details {
+    background-color: #fcee06;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* left, center, right layout */
+    flex-wrap: wrap;
+    font-size: 16px;
+    box-sizing: border-box;
+    border: 1px solid rgba(22, 21, 19, 0.12);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.16);
+    min-height: 70px;
+    width: 100%;
+    gap: 16px;
+}
+
+/* === LEFT SECTION (Label + Dropdown / Name) === */
+.dealer-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+.dealer-left label {
+    font-weight: 600;
+    margin: 0;
+}
+
+.dealer-left select {
+    appearance: none; /* removes default browser arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    border: 1px solid rgba(22, 21, 19, 0.3);
+    border-radius: 4px;
+    padding: 6px 32px 6px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    min-width: 200px;
+}
+
+.dealer-left select:hover {
+    border-color: rgba(22, 21, 19, 0.6);
+}
+
+.dealer-left select:focus {
+    outline: none;
+    border-color: rgba(22, 21, 19, 0.8);
+    box-shadow: 0 0 0 2px rgba(22, 21, 19, 0.15);
+}
+
+/* === CENTER SECTION (Agent number) === */
+.agent-number {
+    flex: 1 1 auto;
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* === RIGHT SECTION (BDM + Call Icon) === */
+.call-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex: 0 0 auto;
+    position: relative;
+}
+
+.call-wrapper p {
+    margin: 0;
+}
+
+.call-icon-details-wrapper {
+    position: relative;
+}
+
+.call-icon {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 5px 10px;
+    min-width: 30px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border 0.2s ease;
+}
+
+.call-icon:hover {
+    background-color: #fff032;
+}
+
+.icon-border {
+    border: 1px solid rgba(22, 21, 19, 0.5);
+}
+
+/* === CALL DETAILS TOOLTIP === */
+.call-details {
+    position: absolute;
+    left: -208px;
+    margin-top: 10px;
+    padding: 0 10px;
+    white-space: nowrap;
+    background-color: #fff;
+    border: 1px solid rgba(22, 21, 19, 0.12);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    transform-origin: top left;
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 2;
+}
+
+.call-details.expanded {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.call-details p {
+    line-height: 2.2;
+    margin: 0;
+}
+
+.opening-time {
+    white-space: break-spaces;
+}
+
+/* === Responsive Behavior === */
+@media screen and (max-width: 768px) {
+    .dealer-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .agent-number {
+        text-align: left;
+    }
+
+    .call-wrapper {
+        justify-content: flex-start;
+    }
+
+    .dealer-left select {
+        min-width: 160px;
+    }
+}

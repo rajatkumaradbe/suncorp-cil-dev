@@ -1,0 +1,21 @@
+{
+  "definitions": [
+    {
+      "title": "Distributor",
+      "id": "distributor",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "distributor",
+              "model": "distributor"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "filters": [],
+  "models": []
+}

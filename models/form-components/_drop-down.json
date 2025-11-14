@@ -1,0 +1,45 @@
+{
+    "definitions": [
+        {
+            "title": "Dropdown List",
+            "id": "drop-down",
+            "plugins": {
+              "xwalk": {
+                "page": {
+                  "resourceType": "core/fd/components/form/dropdown/v1/dropdown",
+                  "template": {
+                    "jcr:title": "Drop Down List",
+                    "fieldType": "drop-down",
+                    "enabled": true,
+                    "visible": true
+                  }
+                }
+              }
+            }
+        }
+    ],
+    "models": [
+        {
+            "id": "drop-down",
+            "fields": [
+                {
+                    "component": "container",
+                    "name": "basic",
+                    "label": "Basic",
+                    "collapsible": false,
+                    "...": "../form-common/_basic-select-fields.json"
+                },
+                {
+                "...": "../form-common/_help-container.json"
+                },
+                {
+                    "component": "container",
+                    "name": "validation",
+                    "label": "Validation",
+                    "collapsible": true,
+                    "...": "../form-common/_basic-validation-fields.json"
+                }
+            ]
+        }
+    ]
+}
