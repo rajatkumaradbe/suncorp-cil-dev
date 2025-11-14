@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "https://author-p139617-e1446293.adobeaemcloud.com/bin/franklin.delivery/aemsites/suncorp-cil-dev/main"
+    url: "https://author-p138853-e1404402.adobeaemcloud.com/bin/franklin.delivery/rajatkumaradbe/suncorp-cil-dev/main"
     type: "markup"
     suffix: ".html"
