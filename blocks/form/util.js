@@ -283,6 +283,12 @@ export function checkValidation(fieldElement) {
   if (isCheckboxGroup && required === 'true') {
     updateRequiredCheckboxGroup(fieldElement.name, fieldElement.form);
   }
+    // Clear any custom validity from form model to let HTML5 validation run fresh
+  // The form model will re-set it if still invalid
+  if (fieldElement.setCustomValidity && fieldElement.validity.customError) {
+    fieldElement.setCustomValidity('');
+  }
+  
   if (fieldElement.validity.valid && fieldElement.type !== 'file') {
     removeInvalidMsg(fieldElement);
     return;
