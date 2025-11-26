@@ -205,11 +205,6 @@ async function fieldChanged(payload, form, generateFormRendition) {
         if (currentValue === true) {
           updateOrCreateInvalidMsg(field, '');
         }
-         else if (currentValue === false && fieldModel.validationMessage) {
-          // When field becomes invalid, ensure the error message and class are set
-          updateOrCreateInvalidMsg(field, fieldModel.validationMessage);
-          field.setCustomValidity(fieldModel.validationMessage);
-        }
         break;
       default:
         break;
