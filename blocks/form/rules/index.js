@@ -101,8 +101,8 @@ async function fieldChanged(payload, form, generateFormRendition) {
       case 'errorMessage':
         {
           const { validity } = payload.field;
-          if (field.setCustomValidity
-          && (validity?.expressionMismatch || validity?.customConstraint)) {
+          if ((field.setCustomValidity
+          && (validity?.expressionMismatch || validity?.customConstraint)) || validity?.valid == false) {
             field.setCustomValidity(currentValue);
             updateOrCreateInvalidMsg(field, currentValue);
           }
