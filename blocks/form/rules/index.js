@@ -98,6 +98,7 @@ async function fieldChanged(payload, form, generateFormRendition) {
         }
         break;
       case 'validationMessage':
+      case 'errorMessage':
         {
           const { validity } = payload.field;
           if (field.setCustomValidity
@@ -203,11 +204,6 @@ async function fieldChanged(payload, form, generateFormRendition) {
       case 'valid':
         if (currentValue === true) {
           updateOrCreateInvalidMsg(field, '');
-        }
-        else if (currentValue === false && fieldModel.validationMessage) {
-          // When field becomes invalid, ensure the error message and class are set
-          updateOrCreateInvalidMsg(field, fieldModel.validationMessage);
-          field.setCustomValidity(fieldModel.validationMessage);
         }
         break;
       default:
