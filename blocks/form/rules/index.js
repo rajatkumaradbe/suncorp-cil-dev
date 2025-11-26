@@ -106,6 +106,11 @@ async function fieldChanged(payload, form, generateFormRendition) {
             field.setCustomValidity(currentValue);
             updateOrCreateInvalidMsg(field, currentValue);
           }
+           else if (!currentValue || (validity && validity.valid)) {
+              // Field is valid or validationMessage is empty - clear error
+              field.setCustomValidity('');
+              updateOrCreateInvalidMsg(field, '');
+            }
         }
         break;
       case 'value':
